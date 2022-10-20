@@ -25,25 +25,26 @@ public class LinearEquation {
 
     // calculates and returns the slope of the line between (x1, y1) and (x2, y2), rounded to the nearest hundredth
     public double slope(){
-        return roundedToHundredth((double)(x2 - x1)/(y2 - y1));
+        return roundedToHundredth((double)(y2 - y1)/(x2 - x1));
     }
 
     // returns a String that represents the linear equation of the line through points (x1, y1) and (x2, y2) in slope-intercept (y = mx + b) form, e.g. "y = 3x + 1.5"
     public String equation(){
         String finalEquation = "y = ";
+
         if (slope() == 0){
             finalEquation += yIntercept();
+            return finalEquation;
+        }
+
+        if ((int)slope() == slope()){
+            finalEquation += slope() + "x";
         } else {
-            if ((int) slope() != slope()){
-                if (((x2 - x1) < 0) && ((y2 - y1) < 0)){
-                    finalEquation += Math.abs(x2 - x1) + "/" + Math.abs(y2 - y1) + "x";
-                } else {
-                    if ((y2 - y1) < 0){
-                        finalEquation += "-" + (x2 - x1) + "/" + Math.abs(y2 - y1) + "x";
-                    }
-                }
-            } else {
-                finalEquation += slope() + "x";
+            if (((y2 - y1) < 0) && (x2 - x1) < 0){
+                finalEquation += Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) +"x";
+            }
+            if ((x2 - x1) < 0){
+                finalEquation += "-" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
             }
         }
 
