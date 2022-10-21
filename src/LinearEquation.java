@@ -38,13 +38,16 @@ public class LinearEquation {
         }
 
         if ((int)slope() == slope()){
-            finalEquation += slope() + "x";
+            finalEquation += (int)slope() + "x";
         } else {
             if (((y2 - y1) < 0) && (x2 - x1) < 0){
                 finalEquation += Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) +"x";
-            }
-            if ((x2 - x1) < 0){
-                finalEquation += "-" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
+            } else {
+                if ((x2 - x1) < 0){
+                    finalEquation += "-" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x";
+                } else {
+                    finalEquation += (y2 - y1) + "/" + (x2 - x1) + "x";
+                }
             }
         }
 
@@ -52,9 +55,9 @@ public class LinearEquation {
             return finalEquation;
         } else {
             if (yIntercept() < 0){
-                finalEquation += " " + yIntercept();
+                finalEquation += " - " + Math.abs(yIntercept());
             } else {
-                finalEquation += "+ " + yIntercept();
+                finalEquation += " + " + yIntercept();
             }
         }
         return finalEquation;
