@@ -38,7 +38,15 @@ public class LinearEquation {
         }
 
         if ((int)slope() == slope()){
-            finalEquation += (int)slope() + "x";
+            if (slope() == 1){
+                finalEquation += "x";
+            } else {
+                if (slope() == -1) {
+                    finalEquation += "-x";
+                } else {
+                    finalEquation += (int)slope() + "x";
+                }
+            }
         } else {
             if (((y2 - y1) < 0) && (x2 - x1) < 0){
                 finalEquation += Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) +"x";
