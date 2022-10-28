@@ -27,15 +27,10 @@ public class LinearEquationRunner {
             System.out.println(lineareq.lineInfo());
             System.out.println("");
             System.out.print("Enter a value for x: ");
-            int xCoord = scan.nextInt();
+            double xCoord = scan.nextDouble();
             scan.nextLine();
             System.out.println("");
             System.out.println("The point on the line is " + lineareq.coordinateForX(xCoord));
-
         }
-
-
-
-
     }
 }
